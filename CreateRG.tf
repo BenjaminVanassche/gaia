@@ -11,9 +11,12 @@ terraform {
 provider "azurerm" {
   features {}
 }
-
+# variables
+variable "rgname" {
+  type = string
+}
 # Create a resource group
 resource "azurerm_resource_group" "example" {
-  name     = "example-resources"
+  name     = var.rgname
   location = "West Europe"
 }
